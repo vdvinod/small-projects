@@ -1,0 +1,123 @@
+/* Styles go here */
+
+
+.navbar{
+  margin-bottom:2px!important;
+  max-height:2% !important
+}
+nav ul {
+  padding-top:10px;
+  display:inline-block;
+  width: 100%;
+}
+nav ul input{
+  border-radius:5px;
+  color:black;
+}
+nav input[type="text"]{
+   display: inline;
+    width: 30%;
+    font-family: FontAwesome, "Open Sans",;
+    padding: 10px;
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+.inpt-group{
+  border: 1px solid grey;
+}
+.clear {
+  position: relative;
+}
+.clear-remove {
+  position: absolute;
+  top:10;
+  right:-10;
+}
+.search-icon {
+  font-family: 'FontAwesome';
+    color:red;
+    position: relative;
+    left: -5px;
+    content: "";
+}
+nav ul li {
+  list-style:none;
+  display:inline;
+  color:white;
+}
+.nav-img{
+  /*border:1px sold white;*/
+  height:inherit;
+  width:50px;
+  border-radius: 50%;
+  /*display:inline;*/
+}
+.header-right{
+      text-align: right;
+}
+.main-container{
+  position: relative;
+}
+.sidebar{
+  height:calc(100% - 50px);
+  padding:5px;
+}
+.name-card{
+  height:100px;
+  /*width:100%;*/
+  padding:35px 0px;
+  border:2px solid grey;
+  border-bottom:none;
+  text-align:center;
+  font-size: 16px;
+}
+.name-card:nth-last-child(1){
+  border-bottom: 2px solid grey;
+}
+.pd-all-0{
+  padding:0;
+}
+
+.selected-user{
+  padding-top:10px;
+}
+.selected-user img{
+  border:5px solid grey;
+}
+.selected-user-description{
+  font-size:15px;
+  font-weight:500;
+  padding-top: 10px;
+}
+.checked {
+  color: orange;
+}
+.fa .fa-star{
+  font-size:48px;
+}
+.rating {
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+
+ul.rating {
+  display: inline-block;
+}
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size:20px;
+}
+.rating .filled {
+  color: orangered;
+}
+.ratingsGiven{
+  color: orangered;
+}
