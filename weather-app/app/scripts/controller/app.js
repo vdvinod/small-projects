@@ -1,4 +1,4 @@
-var app = angular.module('knorexApp',[]).controller('knorexCtrl',function($scope,weatherSvc){
+var app = angular.module('weatherApp',[]).controller('knorexCtrl',function($scope,weatherSvc){
 
     $scope.cityListArr = weatherSvc.cityArr;
     $scope.citySelected = {};

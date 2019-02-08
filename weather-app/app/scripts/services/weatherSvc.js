@@ -1,4 +1,4 @@
-angular.module('knorexApp').factory('weatherSvc',function($http,$q){
+angular.module('weatherApp').factory('weatherSvc',function($http,$q){
     const cityArr = [{
         "id": 1566083,
         "name": "Thanh pho Ho Chi Minh",
