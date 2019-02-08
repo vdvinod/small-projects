@@ -1,0 +1,52 @@
+
+
+nav ul li {
+    list-style:none;
+    display:inline;
+    color:white;
+  }
+  .navbar{
+    margin-bottom:2px!important;
+    max-height:2% !important
+  }
+  nav ul {
+    padding-top:10px;
+    display:inline-block;
+    width: 100%;
+  }
+  nav ul input{
+    border-radius:5px;
+    color:black;
+  }
+  header{
+    margin-bottom: 20px;
+  }
+.select-cls{
+    display: inline !important;
+    width: 25%;
+}
+
+.next-three-days{
+    display: inline-block; 
+    margin-top:20px; 
+    margin-bottom:20px;
+    font-size: 24px;
+    font-weight: 500;
+    margin-right: 40px;
+}
+.pd-left{
+    padding-left:0; 
+}
+.pd-right{
+    padding-right: 0px;
+}
+.pd-all-0{
+    padding: 0px;
+}
+.weather-container{
+    border: 3px solid lightgreen;
+    border-radius: 7px;
+}
+.no-selection{
+    font-size:24px; 
+}

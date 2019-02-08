@@ -1,0 +1,90 @@
+<!doctype html>
+<html ng-app="knorexApp">
+
+<head>
+    <title>
+        Knorex Weather App
+    </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app/scripts/controller/app.js"></script>
+    <script src="app/scripts/services/weatherSvc.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/styles/style.css">
+
+</head>
+
+<body ng-controller="knorexCtrl">
+    <div class="container-fluid">
+        <div class="row">
+            <header>
+                <nav class="navbar navbar-inverse">
+                    <ul>
+                        <li>
+                            Header
+                        </li>
+                        <li class="pull-right">
+                            <img class="nav-img" src="">
+                        </li>
+                        <li class="pull-right ">
+                            User Name
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="col-xs-10">
+                From : {{title}}
+                <select class="form-control select-cls" ng-model="citySelected" ng-change="selectedCity(citySelected)" ng-options=" city as city.name for city in cityListArr">
+                    <option value="select City">
+                        Select City"
+                    </option>
+                </select>
+
+                <hr />
+            </div>
+            <div class="col-xs-10">
+                    <div class="col-xs-12 weather-container" ng-if="weatherArray.length">
+                            <div class="col-xs-4 pd-left">
+                                <label>
+                                    Current Weather :
+                                </label>
+                                <div>
+                                    <span class="next-three-days">
+                                        {{(weatherArray[0].main.temp -273.15).toFixed(0) }} &#8451;
+                                        <img src="http://openweathermap.org/img/w/{{weatherArray[0].weather[0].icon}}.png" />
+            
+                                    </span>
+            
+                                </div>
+                            </div>
+                            <div class="col-xs-8 pd-right">
+                                <label>
+                                    Next 3 Days :
+            
+                                </label>
+                                <br />
+                                <div ng-repeat="temp in weatherArray" style="display:inline;">
+                                    <span ng-show="$index > 0" class="next-three-days">
+                                        {{temp.dt_txt | date : "dd/MM"}}<br/>
+                                        {{(temp.main.temp -273.15).toFixed(0) }} &#8451;
+                                        <img src="http://openweathermap.org/img/w/{{temp.weather[0].icon}}.png" />
+                                    </span>
+            
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="!weatherArray.length">
+                            <span class="no-selection">
+                                Please Select City First
+                            </span>
+                        </div>
+            </div>
+            
+
+        </div>
+    </div>
+</body>
+
+</html>
