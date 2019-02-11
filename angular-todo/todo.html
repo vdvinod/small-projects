@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.min.js"></script>
+    <style>
+       
+        input:checked + span {
+            color: red;
+            text-decoration:line-through;
+            font-size: 22px;
+          }
+          input[type="checkbox"]{
+            
+            width:15px;
+            height:15px;
+          } 
+    </style>
+</head>
+<body ng-app="myModule" ng-controller="myCtrl">
+    <div style="margin:auto; height:auto; width:50%; padding-bottom:50px; padding-left:50px; background:rgb(228, 202, 202);" >
+            <h2 align="center">My Todo List</h2>
+           <!-- <form ng-submit="todoAdd()">-->
+                
+                <input type="text" size="50" ng-model="input"><br>
+                <input type="button" ng-click="todoAdd()" value="add" ng-disabled="dis">
+                <input type="button" ng-click="update()" value="update">
+               
+                <span style="color:red; font-family:Franklin Gothic Medium; font-size:18px;">{{error}}</span>
+            
+           </br><br>
+            <div ng-repeat="x in todoList" style="background: rgb(228, 213, 213)">
+                    <input type="checkbox" ng-model="done" ng-click="toDoCheck($index)">&nbsp; <span style="font-size:20px">{{x.toDo}}</span> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="edit($index)" style="cursor:pointer">edit</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span ng-click="remove($index)" style="cursor:pointer">X</span>
+            </div>
+        </br>
+          
+                <input type="button" value="remove checked" ng-click="removeAll()" ng-show="showBtn">
+           
+    </div>
+    <script>
+        /// <reference path="d:\Github(nitindev111)\angular\angular.js" />
+        var myApp=angular.module("myModule",[])
+            .controller("myCtrl",function($scope){
+                $scope.todoList=[];
+                var indexUpdate="";
+                $scope.todoAdd=function(){
+                    $scope.error="";
+                    if(!$scope.input){
+                        $scope.error="must write some thing";
+                        return;
+                    }
+                    for(var i = 0; i<$scope.todoList.length; i++)
+                    {
+                        
+                      
+                       if( $scope.todoList[i].toDo.toLowerCase()==$scope.input.toLowerCase()){
+                           $scope.error="already exist";
+                           return;
+                       }
+                    }
+                    $scope.todoList.push({toDo:$scope.input,done:false});
+                   
+                   
+                   if($scope.todoList.length<=0){
+                        $scope.showBtn="false";
+                    }
+                    else{
+                        $scope.showBtn="true";
+                    }
+                    $scope.input="";
+                }
+                $scope.edit=function(index){
+                    $scope.dis=true;
+                    var a=$scope.todoList[index];
+                   indexUpdate=index;
+                   $scope.input=a.toDo;
+                    
+                }
+                $scope.remove=function(index){
+                    $scope.todoList.splice(index,1);
+                }
+                $scope.update=function(){
+                    if(!$scope.input){
+                        $scope.error="select field to update";
+                        return;
+                    }
+                    $scope.todoList[indexUpdate].toDo=$scope.input;
+                    $scope.input="";
+                    $scope.dis=false;
+                }
+                $scope.toDoCheck=function(index){
+                    if($scope.todoList[index].done==false){
+                        $scope.todoList[index].done=true;
+                    }
+                    else{
+                        $scope.todoList[index].done=false;
+                    }
+                  //  console.log($scope.todoList);
+                }
+                $scope.removeAll=function(){
+                    for(var i = 0; i<$scope.todoList.length; i++)
+                    {
+                         if( $scope.todoList[i].done==true){
+                            $scope.todoList.splice(i,1);
+                       }
+                    }
+                }
+            });
+    </script>
+</body>
