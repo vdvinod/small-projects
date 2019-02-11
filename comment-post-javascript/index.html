@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="index.js"></script>
+        <style>
+            .registration{
+                display: none;
+            }
+            .login{
+                display: none;
+            }
+            .postBox{
+                display: none;
+                width:100%;
+            }
+            .mypost{
+               font-family: 'Courier New', Courier, monospace;
+            }
+            .allpost{
+                font-family: 'Courier New', Courier, monospace;
+                float:left;
+                width:450px;
+            }
+            .header{
+                position:absolute;
+                left:50%;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+                font-size: 20px;
+                color:cadetblue;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header" id="userTitle"></div>
+        <div id="loginRegButtons">
+                <button onclick="showLogin()">LOGIN</button>
+                <button onclick="showRegister()">Registration</button>
+        </div>
+        
+        <div id="registration" class="registration">
+            <form name="registrationForm">
+                <input type="text" name="name" id="name">
+                <input type="email" name="email" id="email">
+                <input type="password" name="password" id="password">
+                <input type="button" value="register" onclick="add()">
+            </form>
+        </div>
+
+        <div id="login" class="login">
+                <form name="loginForm">
+                    <input type="email" name="email" id="lemail">
+                    <input type="password" name="password" id="lpassword">
+                    
+                    <input type="button" value="login" onclick="login()">    
+                </form>
+                
+        </div>
+        <div id="postBox" class="postBox" >
+            <div>
+                <textarea name="post" id="post"></textarea>
+                <input type="button" value="POST" onclick="savepost()"> 
+            </div>
+            <!-- <div>
+                <ul id="commentList">
+                </ul>
+            </div>
+            <span>
+                    <input type="text" name="comment" id="comment">
+                    <input type="button" value="comment" onclick="saveComment()">
+            </span> -->
+            
+        </div>
+        <hr>
+        <div>
+            
+            <div class="allpost">
+                <ul id="postList">
+                </ul>
+            </div>
+            <div class="mypost">
+                    
+                <ul id="myPosts">
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
