@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="my">
+
+<my-directive  control-type="{{test}}"></my-directive>
+
+<script>
+var app = angular.module("myApp", []);
+app.controller("my", function($scope) {
+    
+  $scope.test = "phone";
+
+});
+app.directive("myDirective", function() {
+    return {
+    	scope:false,
+        template : "<input type='text' numbers-only>"
+    };
+});
+app.directive("numbersOnly", function() {
+    return {
+    	restrict : 'A',
+        link: function(scope,elem,att){
+        console.log(elem)
+            elem.bind('keydown', function(event) {
+            	console.log(event.which>=48 && event.which <=57);
+				if(!(event.which>=48 && event.which <=57)){
+					event.preventDefault();
+				}
+            });
+           
+        }
+    };
+});
+</script>
+
+</body>
+</html>
