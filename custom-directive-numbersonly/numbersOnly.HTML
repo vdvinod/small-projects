@@ -24,8 +24,8 @@ app.directive("numbersOnly", function() {
         link: function(scope,elem,att){
         console.log(elem)
             elem.bind('keydown', function(event) {
-            	console.log(event.which>=48 && event.which <=57);
-				if(!(event.which>=48 && event.which <=57)){
+
+				if(!(event.which>=48 && event.which <=57 || event.which===8)){
 					event.preventDefault();
 				}
             });
