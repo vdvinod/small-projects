@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Closures</h2>
+
+<p>Counting with a local variable.</p>
+
+<button type="button" onclick="myFunction()">Count 1</button>
+
+
+
+<p id="demo">0</p>
+
+<script>
+
+    var add = (function () {
+        var counter = 0;
+        //closure is a inner function that has access to its outer funtion even after parent function had alredy returnd
+        // it remembers in which context it was called
+        return function () {
+            counter += 1; return counter;
+        }
+    }());  
+   
+    function myFunction(){
+    document.getElementById("demo").innerHTML = add();
+    }
+   
+</script>
+
+</body>
+</html>
