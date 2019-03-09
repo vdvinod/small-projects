@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+<style type="text/css">
+    div[contentEditable] {
+      cursor: pointer;
+      background-color: #D0D0D0;
+      font-size:20px;
+      height:30px;
+    }
+  </style>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<div contentEditable="true" ng-model="content" title="Click to edit">Some</div>
+<pre>model = {{content}}</pre>
+
+</div>
+
+<script>
+var app = angular.module("myApp", ['ngSanitize']);
+app.controller("myCtrl", function($scope) {
+    $scope.myText = "My name is: <h1>John Doe</h1>";
+}).directive('contenteditable', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      // view -> model
+      elm.on('keypress', function() {
+        ctrl.$setViewValue(elm.html());
+      });
+
+      // model -> view
+      ctrl.$render = function() {
+        elm.html(ctrl.$viewValue);
+      };
+
+      // load init value from DOM
+      ctrl.$setViewValue(elm.html());
+    }
+  };
+});
+</script>
+
+
+
+</body>
+</html>
