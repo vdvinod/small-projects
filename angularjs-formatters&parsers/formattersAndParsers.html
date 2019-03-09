@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS</title>
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+    <input type="button" value="set to 'angular'" ng-click="data.name='angular'" />
+    <input type="button" value="set to 'ANGULAR'" ng-click="data.name='ANGULAR'" />
+    <input changecase ng-model="data.name" />
+    <pre>model is: {{data.name}}</pre>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('MainCtrl', function ($scope) {
+        $scope.data = { name: '' };
+    });
+    app.directive('changecase', function () {
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function (scope, element, attrs, ngModel) {
+
+                //format text going to user (model to view)
+                ngModel.$formatters.push(function (value) {
+                    return value.toUpperCase();
+                });
+
+                //format text from the user (view to model)
+                ngModel.$parsers.push(function (value) {
+                    return value.toLowerCase();
+                });
+            }
+        }
+    });
+</script>
+
+</html>
