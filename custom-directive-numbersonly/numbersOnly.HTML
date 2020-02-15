@@ -24,7 +24,7 @@ app.directive("numbersOnly", function() {
         link: function(scope,elem,att){
         console.log(elem)
             elem.bind('keydown', function(event) {
-
+                //numbers from 0-9 having keycode 48-57 and for backsapce keycode is 8 to allowing only numbers and backspace
 				if(!(event.which>=48 && event.which <=57 || event.which===8)){
 					event.preventDefault();
 				}
