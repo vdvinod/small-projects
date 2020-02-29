@@ -1,0 +1,37 @@
+.circle {
+  height: 30px;
+  width: 30px;
+  margin: 2px;
+  border-radius: 70%;
+  display: inline-block;
+  cursor: pointer;
+}
+.circle-inactive {
+  border: 2px solid rgb(230, 230, 230);
+  background: radial-gradient(#6f7c7e,#c9e7c7, white);
+}
+.glow {
+  animation: glow .2s;
+}
+@keyframes glow {
+  from {
+    border: 2px solid rgb(119, 146, 223);
+    background: radial-gradient(#c90e46,#c9e7c7, white);
+  }
+  to {
+    border: 2px solid rgb(230, 230, 230);
+    background: radial-gradient(#6f7c7e,#c9e7c7, white);
+  }
+}
+.circle-inactive:hover
+{
+  border: 2px solid rgb(53, 196, 231);
+  background: radial-gradient(#57b83f,#c9e7c7, white);
+}
+.circle-container {
+  width: 210px;
+  margin: auto;
+}
+.margin-2px {
+  margin: 2px;
+}
