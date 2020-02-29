@@ -11,7 +11,7 @@
   background: radial-gradient(#6f7c7e,#c9e7c7, white);
 }
 .glow {
-  animation: glow .2s;
+  animation: glow .1s;
 }
 @keyframes glow {
   from {
@@ -26,7 +26,7 @@
 .circle-inactive:hover
 {
   border: 2px solid rgb(53, 196, 231);
-  background: radial-gradient(#57b83f,#c9e7c7, white);
+  background: radial-gradient(#50da2e,#e4eee4, white);
 }
 .circle-container {
   width: 210px;
@@ -34,4 +34,42 @@
 }
 .margin-2px {
   margin: 2px;
+}
+.custom-modal {
+  min-height: 300px;
+  width: 400px;
+  background: gray;
+  padding: auto;
+  text-align: center;
+  padding-top: 70px;
+  position: fixed;
+  background: #b97ae7c2;
+  animation: model-top-down 1s;
+  z-index: 1000;
+  color: #552421;
+  font-size: 35px;
+}
+
+.custom-modal span {
+  position: absolute;
+  top: 0px;
+  left:10px;
+  animation: modal-close 4s linear infinite;
+  cursor: pointer;
+}
+@keyframes model-top-down {
+  0% {
+    top: -200px
+  }
+  100% {
+    top: 50px;
+  }
+}
+@keyframes modal-close {
+  from {
+    transform: rotate(0deg)
+  }
+  to{
+    transform: rotate(360deg)
+  }
 }
