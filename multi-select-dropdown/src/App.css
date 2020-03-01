@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.new-select{
+  width: 220px;
+  height: 32px;
+  display: inline-block;
+  position: relative;
+}
+
+.new-search-choices {
+  position: absolute;
+}
+
+.new-search-match {
+  position: relative;
+}
+
+.input-control {
+  width: 100%;
+  height: 80%;
+  box-sizing: border-box;
+}
+
+.ul-dropdown-menu {
+  position: absolute;
+  list-style: none;
+  top: 15px;
+  width: 100%;
+  padding: 0px 15px;
+  z-index: 100;
+  text-align: left;
+  /* border: 1px solid #d2b7d342; */
+  background: white;
+  box-shadow: 0px 0px 7px;
+  box-sizing: border-box;
+  max-height: 250px;
+  line-height: 1.5;
+  overflow: scroll;
+}
+ul li {
+  border-bottom: 1px solid #adadad;
+  display: inline-block;
+}
+ul li:hover {
+  background: rgb(127, 185, 219);
+  cursor: pointer;
+}
