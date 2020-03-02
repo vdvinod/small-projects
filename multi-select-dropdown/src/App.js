@@ -15,6 +15,9 @@ class App extends React.PureComponent {
   }
 
   loadUserList = ()=> {
+    if(this.state.userList.length){
+      return;
+    }
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(res => res.json())
       .then(
@@ -31,6 +34,9 @@ class App extends React.PureComponent {
       )
   }
   loadPostList = ()=> {
+    if(this.state.postList.length){
+      return;
+    }
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(res => res.json())
       .then(
@@ -48,7 +54,6 @@ class App extends React.PureComponent {
   }
   render ()
   {
-    console.log("render");
     return (
     <div className="App">
       <div>
