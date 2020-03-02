@@ -1,10 +1,12 @@
 import React from "react";
 
-const newSelectMatch = ({clickHandler, showHideHandler}) => {
+const newSelectMatch = ({clickHandler, showHideHandler, value, inputChangeHandler, removeSelectedValue}) => {
+    //console.log(value)
     return (
         <span>
             <span></span>
-            <input className="input-control" onClick={clickHandler} onFocus={()=>showHideHandler(true)} onBlur={()=>showHideHandler(false)} type="text" />
+            <input className="input-control" value={value} onChange={inputChangeHandler} onClick={clickHandler} onFocus={()=>showHideHandler(true)} onBlur={()=>showHideHandler(false)} type="text" />
+            {value && <span onClick={removeSelectedValue}>X</span>}
         </span>
     )
 }

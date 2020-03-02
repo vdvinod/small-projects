@@ -59,13 +59,13 @@ class App extends React.PureComponent {
       <div>
        <span>User :</span>
         <span>
-          <NewSelect  choices={this.state.userList} clickHandler={this.loadUserList} bindValue="name"/>
+          <NewSelect  choices={this.state.userList} clickHandler={this.loadUserList} bindValueProperty="name"/>
         </span>
       </div>
       <div>
        <span>Post :</span>
         <span>
-          <NewSelect  choices={this.state.postList} clickHandler={this.loadPostList} bindValue="title"/>
+          <NewSelect  choices={this.state.postList} clickHandler={this.loadPostList} bindValueProperty="title"/>
         </span>
       </div>
     </div>

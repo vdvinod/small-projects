@@ -24,6 +24,15 @@
   box-sizing: border-box;
 }
 
+.input-control+span{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #ef9f78;
+}
+
 .ul-dropdown-menu {
   position: absolute;
   list-style: none;

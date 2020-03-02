@@ -5,19 +5,32 @@ import NewSelectMatch from "./new-select-match";
 
 class NewSelect extends React.Component {
     state = {
-        isOpen: false
+        isOpen: false,
+        value:{}
     }
     showHideList = (isShow) => {
+        setTimeout(()=>{
+            this.setState({
+                isOpen: isShow
+            });
+        },100);
+    }
+    bindValueToField = (val) => {
+        console.log(val,"adas");
         this.setState({
-            isOpen: isShow
-        })
+            value: val
+        });
+    }
+    removeSelectedValue = () => {
+        this.setState({
+            value: {}
+        });
     }
     render() {
-        console.log(this.props.choices);
         return (
             <div className="new-select">
-                <NewSelectMatch clickHandler={this.props.clickHandler} showHideHandler={this.showHideList}/>
-                { this.state.isOpen && this.props.choices && <NewSelectChoices choices={this.props.choices} bindValue={this.props.bindValue}/>}
+                <NewSelectMatch clickHandler={this.props.clickHandler} showHideHandler={this.showHideList} value={this.state.value[this.props.bindValueProperty]} removeSelectedValue={this.removeSelectedValue}/>
+                { this.state.isOpen && this.props.choices && <NewSelectChoices choices={this.props.choices} bindValueProperty={this.props.bindValueProperty} bindValueToField={this.bindValueToField}/>}
             </div>
         );
     }
