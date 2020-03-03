@@ -8,10 +8,25 @@ import './App.css';
 class App extends React.PureComponent {
   state = {
     userList: [],
-    postList: []
+    postList: [],
+    user: [],
+    post: {}
   }
   componentDidMount() {
     
+  }
+
+  selectHandler= (val, test) => {
+ 
+    this.setState({
+        user: val
+    });
+  }
+
+  removeHandler = () => {
+    this.setState({
+        user: {}
+    });
   }
 
   loadUserList = ()=> {
@@ -59,14 +74,17 @@ class App extends React.PureComponent {
       <div>
        <span>User :</span>
         <span>
-          <NewSelect  choices={this.state.userList} clickHandler={this.loadUserList} bindValueProperty="name"/>
+          <NewSelect  choices={this.state.userList} multiple value={this.state.user} on_remove={this.removeHandler} on_select={(event)=>this.selectHandler(event,'hi')} clickHandler={this.loadUserList} bindValueProperty="name"/>
         </span>
       </div>
       <div>
        <span>Post :</span>
         <span>
-          <NewSelect  choices={this.state.postList} clickHandler={this.loadPostList} bindValueProperty="title"/>
+          <NewSelect  choices={this.state.postList} value={this.state.post} on_remove={this.removeHandler} on_select={this.selectHandler} clickHandler={this.loadPostList} bindValueProperty="title"/>
         </span>
+      </div>
+      <div>
+        {this.state.user.name}
       </div>
     </div>
   );

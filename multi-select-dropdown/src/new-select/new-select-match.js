@@ -1,7 +1,10 @@
 import React from "react";
 
 const newSelectMatch = ({clickHandler, showHideHandler, value, inputChangeHandler, removeSelectedValue}) => {
-    //console.log(value)
+    if(!value){
+        value = "";
+    }
+    console.log("match");
     return (
         <span>
             <span></span>
