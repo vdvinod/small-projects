@@ -16,6 +16,7 @@ class NewSelect extends React.Component {
         },100);
     }
 
+    
     selectHandler = (val) => {
         if(!this.props.multiple){
             this.props.on_select(val);
@@ -38,8 +39,10 @@ class NewSelect extends React.Component {
                     showHideHandler={this.showHideList} 
                     value={this.props.value} 
                     bindValueProperty={this.props.bindValueProperty}
-                    removeSelectedValue={this.props.on_remove}
-                    inputChangeHandler={this.inputChangeHandler}/>
+                    removeSelectedChoice={this.props.removeChoice}
+                    inputChangeHandler={this.inputChangeHandler}
+                    
+                    />
                     :<NewSelectMatch 
                     clickHandler={this.props.clickHandler} 
                     showHideHandler={this.showHideList} 

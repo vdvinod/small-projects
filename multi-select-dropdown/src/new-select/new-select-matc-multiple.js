@@ -1,6 +1,12 @@
 import React from "react";
 
-const newSelectMatchMultiple = ({clickHandler, showHideHandler, value, inputChangeHandler, removeSelectedValue, bindValueProperty}) => {
+const newSelectMatchMultiple = ({clickHandler,
+    showHideHandler,
+    value,
+    inputChangeHandler,
+    removeSelectedValue,
+    bindValueProperty,
+    removeSelectedChoice}) => {
     if(!value){
         value = "";
     }
@@ -9,7 +15,7 @@ const newSelectMatchMultiple = ({clickHandler, showHideHandler, value, inputChan
         <div>
             <div className="multi-select">
             {value.length ? value.map((val, key)=>{
-               return (<span key={key}>{val[bindValueProperty]}<span>x</span></span>
+               return (<span key={key}>{val[bindValueProperty]}<span onClick={()=>removeSelectedChoice(val.id)}>x</span></span>
                        )
             }) : null}
             </div>
