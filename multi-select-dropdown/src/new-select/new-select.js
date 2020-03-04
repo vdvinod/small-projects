@@ -19,10 +19,13 @@ class NewSelect extends React.Component {
     
     selectHandler = (val) => {
         if(!this.props.multiple){
-            this.props.on_select(val);
+            this.props.on_select({...val});
             return;
         }
-        this.props.value.push(val);
+        let choices = [...this.props.value];
+        choices.push(val);
+        this.props.on_select([...choices]);
+       
     }
 
     inputChangeHandler = () => {
@@ -30,7 +33,7 @@ class NewSelect extends React.Component {
     }
 
     render() {
-        console.log(this.props.multiple)
+        console.log("2")
         return (
             <div className="new-select">
                 {this.props.multiple 
@@ -41,7 +44,6 @@ class NewSelect extends React.Component {
                     bindValueProperty={this.props.bindValueProperty}
                     removeSelectedChoice={this.props.removeChoice}
                     inputChangeHandler={this.inputChangeHandler}
-                    
                     />
                     :<NewSelectMatch 
                     clickHandler={this.props.clickHandler} 

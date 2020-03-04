@@ -17,7 +17,7 @@ class App extends React.PureComponent {
   }
 
   selectHandler= (val, type) => {
-    
+    console.log(val);
     this.setState({
         [type]: val
     });
@@ -30,15 +30,13 @@ class App extends React.PureComponent {
   }
 
   removeChoiceHandler = (index) => {
-    console.log("sd",this.props.value) 
         let i= this.state.user.findIndex((val)=>{
-            
             return val.id === index;
         });
        const users = [...this.state.user];
        users.splice(i,1);
        this.setState({
-         user: users
+         user: [...users]
        })
   }
 
@@ -82,6 +80,7 @@ class App extends React.PureComponent {
   }
   render ()
   {
+    console.log("1");
     return (
     <div className="App">
       <div>
@@ -103,8 +102,8 @@ class App extends React.PureComponent {
       <div>
         <h3>users</h3>
         <div>
-        {this.state.user.map((val)=>{
-          return <div>name: {val.name}</div>
+        {this.state.user.map((val, key)=>{
+          return <div key={key}>name: {val.name}</div>
         })}
         </div>
       </div>
