@@ -10,7 +10,8 @@ class App extends React.PureComponent {
     userList: [],
     postList: [],
     user: [],
-    post: {}
+    post: {},
+    test: []
   }
   componentDidMount() {
     
@@ -93,6 +94,12 @@ class App extends React.PureComponent {
        <span>Post :</span>
         <span>
           <NewSelect  choices={this.state.postList}  value={this.state.post} on_remove={this.removeHandler} on_select={(val)=>this.selectHandler(val,'post')} clickHandler={this.loadPostList} bindValueProperty="title"/>
+        </span>
+      </div>
+      <div>
+       <span>User :</span>
+        <span>
+          <NewSelect  choices={this.state.userList} multiple value={this.state.test} removeChoice={this.removeChoiceHandler} on_select={(val)=>this.selectHandler(val,'test')} clickHandler={this.loadUserList} bindValueProperty="name"/>
         </span>
       </div>
       <div>
