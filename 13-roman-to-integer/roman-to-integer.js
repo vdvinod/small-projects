@@ -14,10 +14,10 @@ var romanToInt = function(s) {
     let nextVal = values[s[i + 1]];
 
     if (nextVal && currentVal < nextVal) {
-      total -= currentVal;
-    } else {
-      total += currentVal;
-    }
+      currentVal = nextVal - currentVal;
+      i++
+    } 
+    total += currentVal;
   }
 
   return total;
